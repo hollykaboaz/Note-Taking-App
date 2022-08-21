@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> Note Taking App </title>
-    <!-- Linking CSS  -->
-    <link rel="stylesheet" href="main.css">
-    <!-- Link to kit -->
-    <script src="https://kit.fontawesome.com/6dd781f75a.js" crossorigin="anonymous"></script>
-    <script src="main.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <textarea class = "textField" name="titleOfNotes" rows="1" cols="80" placeholder="Title"></textarea>
-    <button onclick="addNewBox()" class = "btn"><i class="fa-solid fa-circle-plus fa-2xl bottom-right" style ="--fa-li-margin:  10px;"></i></button>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title> Note Taking App </title>
+  <!-- Linking CSS  -->
+  <link rel="stylesheet" href="main.css">
+  <!-- Link to kit -->
+  <script src="https://kit.fontawesome.com/6dd781f75a.js" crossorigin="anonymous"></script>
+  <!-- Link to javascript -->
+  <script src="main.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <textarea class="pageTitle" name="titleOfNotes" maxlength = "25" rows="1"placeholder="Title"></textarea>
+  <div></div>
+  <button id = "addButton" onclick="addNewBox()" class="btn"><i class="fa-solid fa-circle-plus fa-2xl bottom-right " style="--fa-li-margin:  10px;"></i></button>
+</body>
+
 </html>
