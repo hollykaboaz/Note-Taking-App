@@ -3,39 +3,39 @@ function addNewBox() {
 
   // Create new term box
   var newBox = document.createElement('span');
-  newBox.setAttribute('onmouseover','hideInner(this);')
-  newBox.setAttribute('onmouseout','showInner(this);')
+  // newBox.setAttribute('onmouseover','hideInner(this);')
+  // newBox.setAttribute('onmouseout','showInner(this);')
   newBox.classList.add('newTerm');
 
   // create text field to put inside term box
   var termField = document.createElement('textArea');
-  termField.setAttribute('id','insideBox');
   termField.classList.add("textField");
   termField.placeholder = "Term";
 
   // create understanding buttons inside term box
-  // var eyeButton = document.createElement('button');
-  // eyeButton.classList.add("transparentButton","eye");
-  // var eyeIcon = document.createElement('i');
-  // eyeButton.appendChild(eyeIcon);
-  // eyeIcon.classList.add("fa-solid", "fa-eye");
+  var eyeButton = document.createElement('button');
+  eyeButton.classList.add("transparentButton","eye");
+  var eyeIcon = document.createElement('i');
+  eyeButton.appendChild(eyeIcon);
+  eyeIcon.classList.add("fa-solid", "fa-eye","fa-2xl");
+  eyeIcon.setAttribute('onClick','hideInner(this);')
 
   // create understanding buttons inside term box
   var goodButton = document.createElement('button');
-  goodButton.setAttribute('id','insideBox');
+  goodButton.setAttribute('onclick','statusBoxColor(this,"#3A4F41");');
   var goodIcon = document.createElement('i');
   goodButton.appendChild(goodIcon);
   goodIcon.classList.add("fa-solid", "fa-thumbs-up");
 
   var okButton = document.createElement('button');
-  okButton.setAttribute('onmouseover','show(this);')
-  okButton.setAttribute('id','insideBox');
+  okButton.setAttribute('onclick','statusBoxColor(this,"#e9a325");');
   var okIcon = document.createElement('i');
   okButton.appendChild(okIcon);
   okIcon.classList.add("fa-solid", "fa-thumbs-up");
 
 
   var badButton = document.createElement('button');
+  badButton.setAttribute('onclick','statusBoxColor(this,"#7C131A");');
   badButton.setAttribute('id','insideBox');
   var badIcon = document.createElement('i');
   badButton.appendChild(badIcon);
@@ -59,28 +59,27 @@ function addNewBox() {
 
   // append all created elements
   newBox.appendChild(termField);
-  newBox.append(goodButton, okButton, badButton);
+  newBox.append(eyeButton,goodButton, okButton, badButton);
   // newBox.appendChild(button);
   termBoxes.push(newBox);
-  console.log(termBoxes);
+  // console.log(termBoxes);
   document.body.appendChild(newBox);
 
 }
 
 function show(thisElement){
   thisElement.style.visibility('visible');
-  console.log("hide")
+  // console.log("hide")
 }
 function hideInner(box){
-    console.log(box);
-    innerElements = box.childNodes;
-    console.log(innerElements);
+    innerElements = box.parentNode.parentNode.childNodes;
     innerElements.forEach(element => element.style.visibility = "hidden");
+    var definitionField = document.createElement('textArea');
+    definitionField.classList.add("textField","definitionField");
+    definitionField.placeholder = "definition";
+    box.parentNode.parentNode.appendChild(definitionField);
 }
 
-function showInner(box){
-    console.log(box);
-    innerElements = box.childNodes;
-    console.log(innerElements);
-    innerElements.forEach(element => element.style.removeProperty( 'visibility' ));
+function statusBoxColor(childEl,color){
+  childEl.parentNode.style.backgroundColor = color;
 }

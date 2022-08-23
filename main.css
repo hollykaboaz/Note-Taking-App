@@ -12,9 +12,11 @@
 
 .eye {
   position: relative;
-  bottom: 120px;
-  left: 150px;
+  /* bottom: 4px; */
+  left: 135px;
+  color: grey;
 }
+
 .transparentButton {
   background-color: transparent;
 
@@ -27,7 +29,7 @@
 }
 
 .body::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: grey;
+  color: #8D8D92;
 }
 .textField::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   /* color: white; */
@@ -71,7 +73,7 @@ body {
   width: 300px;
   background-color: #3B252C;
   border-radius: 25px;
-  box-shadow: 20px 20px 50px black;
+  box-shadow: 0px 0px 50px -20px black;
 }
 
 
@@ -88,12 +90,8 @@ body {
 }
 
 .definitionField {
-  outline: none;
-  color: #EEEBD3;
-  font-size: 50px;
-  background: transparent;
-  border: none;
-
+  position: relative;
+  bottom: 200px;
 }
 
 .btnStyle {
@@ -103,7 +101,7 @@ body {
   border-radius: 25px;
   padding: 20px;
   text-align: center;
-  background-color: grey;
+  background-color: #8D8D92;
   color: inherit;
 
 }
@@ -112,12 +110,15 @@ body {
  /* Status buttons */
 .goodBtn, .okBtn, .badBtn{
   position:relative;
-  left: 70px;
+  left: 36px;
   bottom: 65px;
   margin-right: 10px;
   border-radius: 100px;
   width: 50px;
   height: 50px;
+}
+ .goodBtn:hover, .badBtn:hover, .okBtn:hover{
+  cursor: pointer;
 }
 
 .badBtn{
