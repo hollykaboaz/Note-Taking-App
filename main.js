@@ -9,7 +9,20 @@ function addNewBox() {
   termField.classList.add("textField");
   termField.placeholder = "Term";
 
-  // create definition button for term box
+  // create understanding buttons inside term box
+  var goodButton = document.createElement('button');
+  var okButton = document.createElement('button');
+  var badButton = document.createElement('button');
+
+  // adding styling class to buttons
+  goodButton.classList.add('btn','goodBtn');
+  okButton.classList.add('btn','okBtn');
+  badButton.classList.add('btn','badBtn');
+
+
+
+
+  // create definition button under term box
   var button = document.createElement('button');
   button.classList.add('btn');
   button.innerHTML = "Add a Definition";
@@ -22,8 +35,10 @@ function addNewBox() {
 
 
 
+
   // append all created elements
   newBox.appendChild(termField);
+  newBox.append(goodButton, okButton, badButton);
   newBox.appendChild(button);
   document.body.appendChild(newBox);
 

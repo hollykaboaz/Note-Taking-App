@@ -47,7 +47,7 @@ body {
 /* added box items */
 .newTerm {
   padding: 20px;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-right: 10px;
   margin-bottom: 10px;
   position: static;
@@ -81,12 +81,34 @@ body {
 }
 
 .btnStyle {
+  position: absolute;
   margin-top: 20px;
-  margin-left: 82px;
+  margin-left: -98px;
   border-radius: 25px;
   padding: 20px;
   text-align: center;
   background-color: grey;
   color: inherit;
 
+}
+
+
+ /* Status buttons */
+.goodBtn, .okBtn, .badBtn{
+  position:relative;
+  left: 69px;
+  bottom: 50px;
+  margin-right: 10px;
+  border-radius: 100px;
+  width: 50px;
+  height: 50px;
+}
+.badBtn{
+     background-color: red;
+}
+.goodBtn{
+       background-color: green;
+}
+.okBtn{
+  background-color: yellow;
 }
