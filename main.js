@@ -1,7 +1,10 @@
+var termBoxes = [];
 function addNewBox() {
 
   // Create new term box
   var newBox = document.createElement('span');
+  newBox.setAttribute('onmouseover','hideInner(this);')
+  newBox.setAttribute('onmouseout','showInner(this);')
   newBox.classList.add('newTerm');
 
   // create text field to put inside term box
@@ -25,6 +28,7 @@ function addNewBox() {
   goodIcon.classList.add("fa-solid", "fa-thumbs-up");
 
   var okButton = document.createElement('button');
+  okButton.setAttribute('onmouseover','show(this);')
   okButton.setAttribute('id','insideBox');
   var okIcon = document.createElement('i');
   okButton.appendChild(okIcon);
@@ -57,10 +61,26 @@ function addNewBox() {
   newBox.appendChild(termField);
   newBox.append(goodButton, okButton, badButton);
   // newBox.appendChild(button);
+  termBoxes.push(newBox);
+  console.log(termBoxes);
   document.body.appendChild(newBox);
 
 }
-document.getElementByClass('newTerm').onmouseover =
-     function() {
-         this.className='newactive';
-     };
+
+function show(thisElement){
+  thisElement.style.visibility('visible');
+  console.log("hide")
+}
+function hideInner(box){
+    console.log(box);
+    innerElements = box.childNodes;
+    console.log(innerElements);
+    innerElements.forEach(element => element.style.visibility = "hidden");
+}
+
+function showInner(box){
+    console.log(box);
+    innerElements = box.childNodes;
+    console.log(innerElements);
+    innerElements.forEach(element => element.style.removeProperty( 'visibility' ));
+}
