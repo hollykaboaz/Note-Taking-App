@@ -20,13 +20,14 @@ function addNewBox() {
   badButton.classList.add('btn','badBtn');
 
 
-
-
   // create definition button under term box
   var button = document.createElement('button');
-  button.classList.add('btn');
-  button.innerHTML = "Add a Definition";
-  button.classList.add('btnStyle');
+  var iElement = document.createElement('i');
+  button.classList.add('transparentBtn');
+  iElement.classList.add('fa-solid','fa-pen');
+    button.appendChild(iElement);
+  // button.innerHTML = "Add a Definition";
+  // button.classList.add('btnStyle');
 
 
 

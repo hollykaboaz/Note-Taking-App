@@ -8,6 +8,13 @@
   color: white;
 }
 
+.transparentBtn{
+  background-color: transparent;
+  position:relative;
+  bottom: 60px;
+  left: 100px;
+}
+
 .body::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: grey;
 }
@@ -16,7 +23,7 @@
 }
 
 body {
-  background-color: #333333;
+  background-color: #3B252C;
   font-size: 30px;
   margin-top: 100px;
   margin-left: 200px;
@@ -48,14 +55,15 @@ body {
 .newTerm {
   padding: 20px;
   margin-top: 40px;
-  margin-right: 10px;
+  margin-right: 30px;
   margin-bottom: 10px;
   position: static;
   display: inline-block;
   height: 150px;
   width: 300px;
-  background-color: #000000;
+  background-color: #3B252C;
   border-radius: 25px;
+  box-shadow: 20px 20px 50px black;
 }
 
 
@@ -104,11 +112,11 @@ body {
   height: 50px;
 }
 .badBtn{
-     background-color: red;
+  background-color: #CA3C25;
 }
 .goodBtn{
-       background-color: green;
+  background-color: #77966D;
 }
 .okBtn{
-  background-color: yellow;
+  background-color: #FFBA49;
 }
