@@ -1,3 +1,5 @@
+/* Color Scheme link: https://coolors.co/3b252c-ca3c25-ffba49-77966d */
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 *{
@@ -8,7 +10,16 @@
   color: white;
 }
 
-.transparentBtn{
+.eye {
+  position: relative;
+  bottom: 120px;
+  left: 150px;
+}
+.transparentButton {
+  background-color: transparent;
+
+}
+.editButton{
   background-color: transparent;
   position:relative;
   bottom: 60px;
@@ -19,7 +30,7 @@
   color: grey;
 }
 .textField::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: white;
+  /* color: white; */
 }
 
 body {
@@ -47,9 +58,6 @@ body {
     right: 25px;
 }
 
-#addButton:hover{
-  color: pink;
-}
 
 /* added box items */
 .newTerm {
@@ -104,13 +112,14 @@ body {
  /* Status buttons */
 .goodBtn, .okBtn, .badBtn{
   position:relative;
-  left: 69px;
-  bottom: 50px;
+  left: 70px;
+  bottom: 65px;
   margin-right: 10px;
   border-radius: 100px;
   width: 50px;
   height: 50px;
 }
+
 .badBtn{
   background-color: #CA3C25;
 }
@@ -119,4 +128,5 @@ body {
 }
 .okBtn{
   background-color: #FFBA49;
+  transform: rotate(270deg);
 }
