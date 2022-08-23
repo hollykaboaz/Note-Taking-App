@@ -72,12 +72,12 @@ function show(thisElement){
   // console.log("hide")
 }
 function hideInner(box){
-    innerElements = box.parentNode.parentNode.childNodes;
-    innerElements.forEach(element => element.style.visibility = "hidden");
-    var definitionField = document.createElement('textArea');
-    definitionField.classList.add("textField","definitionField");
-    definitionField.placeholder = "definition";
-    box.parentNode.parentNode.appendChild(definitionField);
+    // innerElements = box.parentNode.parentNode.childNodes;
+    // innerElements.forEach(element => element.style.visibility = "hidden");
+    // var definitionField = document.createElement('textArea');
+    // definitionField.classList.add("textField","definitionField");
+    // definitionField.placeholder = "definition";
+    // box.parentNode.parentNode.appendChild(definitionField);
 }
 
 function statusBoxColor(childEl,color){
