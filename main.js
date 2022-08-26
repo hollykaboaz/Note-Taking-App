@@ -9,6 +9,7 @@ function addFlashcard() {
 
   var flashcard = document.createElement('span');
   var termTitle = document.createElement('textArea');
+  var definitionField = document.createElement('textArea');
 
   // Creating Elements: Rating Buttons, Eye Icon
 
@@ -29,7 +30,7 @@ function addFlashcard() {
   okButton.appendChild(okIcon);
   badButton.appendChild(badIcon);
   eyeButton.appendChild(eyeIcon);
-  flashcard.append(termTitle, goodButton, okButton, badButton, eyeButton);
+  flashcard.append(termTitle, goodButton, okButton, badButton, eyeButton, definitionField);
 
   // Adding Icon Images
   goodIcon.classList.add("fa-solid", "fa-thumbs-up");
@@ -44,7 +45,6 @@ function addFlashcard() {
   // Term Styling
   termTitle.classList.add("textField");
   termTitle.placeholder = "Term";
-
   //Button Styling: Adding background color and CSS Styling
   goodButton.classList.add('status-button');
   goodButton.style.backgroundColor = "#77966D";
@@ -52,6 +52,10 @@ function addFlashcard() {
   okButton.style.backgroundColor = "#FFBA49";
   badButton.classList.add('status-button');
   badButton.style.backgroundColor = "#CA3C25";
+
+  // Definition Styling
+  definitionField.classList.add("definitionField");
+  definitionField.style.visibility = "hidden";
 
   // CSS Styling: Eye Button and Eye Icon
   eyeButton.classList.add("transparentButton","eye");
@@ -65,7 +69,7 @@ function addFlashcard() {
   document.body.appendChild(flashcard);
 
   // Adding Flashcard to list of Flashcards
-  var flashcard = {element: flashcard, visibility : "show", flashcardID: numOfFlashcards};
+  var flashcard = {element: flashcard, visibility : "show", flashcardID: numOfFlashcards, correspondingDefinition : definitionField};
   listOfFlashCards.push(flashcard);
   console.log(listOfFlashCards);
   console.log(numOfFlashcards);
@@ -85,10 +89,11 @@ function hideInner(eyeButton, flashcardIndex){
 
   // If it is showing hide it
   if(listOfFlashCards[flashcardIndex - 1].visibility == "show"){
-    for (var i = 0; i < innerElements.length - 1; i++) {
+    for (var i = 0; i < innerElements.length - 2; i++) {
       innerElements[i].classList.remove('showPositions');
       innerElements[i].classList.add('removePositions');
     }
+    listOfFlashCards[flashcardIndex - 1].correspondingDefinition.style.visibility= "visible";
     listOfFlashCards[flashcardIndex - 1].visibility = "hidden";
   }
 
