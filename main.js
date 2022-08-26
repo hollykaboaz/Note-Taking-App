@@ -103,6 +103,7 @@ function hideInner(eyeButton, flashcardIndex){
       innerElements[i].classList.remove('removePositions');
       innerElements[i].classList.add('showPositions')
     }
+        listOfFlashCards[flashcardIndex - 1].correspondingDefinition.style.visibility= "hidden";
     listOfFlashCards[flashcardIndex - 1].visibility = "show";
   }
 

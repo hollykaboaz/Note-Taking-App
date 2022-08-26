@@ -68,6 +68,7 @@ body {
     position: fixed;
     bottom: 50px;
     right: 25px;
+    box-shadow: 0px 4px 50px -20px black;
 }
 
 .textField {
