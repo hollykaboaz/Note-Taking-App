@@ -56,6 +56,7 @@ function addFlashcard() {
   // Definition Styling
   definitionField.classList.add("definitionField");
   definitionField.style.visibility = "hidden";
+  definitionField.placeholder = "write your definition here";
 
   // CSS Styling: Eye Button and Eye Icon
   eyeButton.classList.add("transparentButton","eye");
