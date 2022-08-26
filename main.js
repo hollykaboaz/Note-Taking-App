@@ -1,83 +1,107 @@
-var termBoxes = [];
-function addNewBox() {
+var listOfFlashCards = [];
+var numOfFlashcards = 0;
+function addFlashcard() {
 
-  // Create new term box
-  var newBox = document.createElement('span');
-  // newBox.setAttribute('onmouseover','hideInner(this);')
-  // newBox.setAttribute('onmouseout','showInner(this);')
-  newBox.classList.add('newTerm');
+  // Increase flashcard count
+  numOfFlashcards++;
 
-  // create text field to put inside term box
-  var termField = document.createElement('textArea');
-  termField.classList.add("textField");
-  termField.placeholder = "Term";
+  // Creating Elements : Flashcard and Title of termTitle
 
-  // create understanding buttons inside term box
-  var eyeButton = document.createElement('button');
-  eyeButton.classList.add("transparentButton","eye");
-  var eyeIcon = document.createElement('i');
-  eyeButton.appendChild(eyeIcon);
-  eyeIcon.classList.add("fa-solid", "fa-eye","fa-2xl");
-  eyeIcon.setAttribute('onClick','hideInner(this);')
+  var flashcard = document.createElement('span');
+  var termTitle = document.createElement('textArea');
 
-  // create understanding buttons inside term box
+  // Creating Elements: Rating Buttons, Eye Icon
+
   var goodButton = document.createElement('button');
-  goodButton.setAttribute('onclick','statusBoxColor(this,"#3A4F41");');
   var goodIcon = document.createElement('i');
-  goodButton.appendChild(goodIcon);
-  goodIcon.classList.add("fa-solid", "fa-thumbs-up");
-
-  var okButton = document.createElement('button');
-  okButton.setAttribute('onclick','statusBoxColor(this,"#e9a325");');
-  var okIcon = document.createElement('i');
-  okButton.appendChild(okIcon);
-  okIcon.classList.add("fa-solid", "fa-thumbs-up");
-
 
   var badButton = document.createElement('button');
-  badButton.setAttribute('onclick','statusBoxColor(this,"#7C131A");');
-  badButton.setAttribute('id','insideBox');
   var badIcon = document.createElement('i');
+
+  var okButton = document.createElement('button');
+  var okIcon = document.createElement('i');
+
+  var eyeButton = document.createElement('button');
+  var eyeIcon = document.createElement('i');
+
+  // Appending all other elements inside of Flashcard
+  goodButton.appendChild(goodIcon);
+  okButton.appendChild(okIcon);
   badButton.appendChild(badIcon);
+  eyeButton.appendChild(eyeIcon);
+  flashcard.append(termTitle, goodButton, okButton, badButton, eyeButton);
+
+  // Adding Icon Images
+  goodIcon.classList.add("fa-solid", "fa-thumbs-up");
+  okIcon.classList.add("fa-solid", "fa-thumbs-up");
   badIcon.classList.add("fa-solid", "fa-thumbs-down");
+  eyeButton.classList.add("transparentButton","eye");
+  eyeIcon.classList.add("fa-solid", "fa-eye","fa-2xl");
 
-  // adding styling class to buttons
-  goodButton.classList.add('btn','goodBtn');
-  okButton.classList.add('btn','okBtn');
-  badButton.classList.add('btn','badBtn');
+  // Flash Card Styling
+  flashcard.classList.add('newTerm');
 
+  // Term Styling
+  termTitle.classList.add("textField");
+  termTitle.placeholder = "Term";
 
-  // // create definition button under term box
-  // var button = document.createElement('button');
-  // var iElement = document.createElement('i');
-  // button.classList.add('editButton');
-  // iElement.classList.add('fa-solid','fa-pen');
-  // iElement.on
-  //   button.appendChild(iElement);
-  // // button.innerHTML = "Add a Definition";
-  // // button.classList.add('btnStyle');
+  //Button Styling: Adding background color and CSS Styling
+  goodButton.classList.add('status-button');
+  goodButton.style.backgroundColor = "#77966D";
+  okButton.classList.add('status-button', 'okBtn');
+  okButton.style.backgroundColor = "#FFBA49";
+  badButton.classList.add('status-button');
+  badButton.style.backgroundColor = "#CA3C25";
 
-  // append all created elements
-  newBox.appendChild(termField);
-  newBox.append(eyeButton,goodButton, okButton, badButton);
-  // newBox.appendChild(button);
-  termBoxes.push(newBox);
-  // console.log(termBoxes);
-  document.body.appendChild(newBox);
+  // CSS Styling: Eye Button and Eye Icon
+  eyeButton.classList.add("transparentButton","eye");
+
+  // On Click of Status -> Change Box Color
+  goodButton.setAttribute('onclick','statusBoxColor(this,"#3A4F41");');
+  okButton.setAttribute('onclick','statusBoxColor(this,"#e9a325");');
+  badButton.setAttribute('onclick','statusBoxColor(this,"#7C131A");');
+
+  // Adding to Document: Flashcard
+  document.body.appendChild(flashcard);
+
+  // Adding Flashcard to list of Flashcards
+  var flashcard = {element: flashcard, visibility : "show", flashcardID: numOfFlashcards};
+  listOfFlashCards.push(flashcard);
+  console.log(listOfFlashCards);
+  console.log(numOfFlashcards);
+
+  // Index of this flashacard in list
+  const index = numOfFlashcards;
+
+  // On Click of Eye Icon -> Hide Inner Elements of Flashcard
+  eyeButton.setAttribute("onclick",`hideInner(this,${index})`);
 
 }
 
-function show(thisElement){
-  thisElement.style.visibility('visible');
-  // console.log("hide")
-}
-function hideInner(box){
-    // innerElements = box.parentNode.parentNode.childNodes;
-    // innerElements.forEach(element => element.style.visibility = "hidden");
-    // var definitionField = document.createElement('textArea');
-    // definitionField.classList.add("textField","definitionField");
-    // definitionField.placeholder = "definition";
-    // box.parentNode.parentNode.appendChild(definitionField);
+function hideInner(eyeButton, flashcardIndex){
+
+  // Creating list of inner elements
+  innerElements = eyeButton.parentNode.childNodes;
+
+  // If it is showing hide it
+  if(listOfFlashCards[flashcardIndex - 1].visibility == "show"){
+    for (var i = 0; i < innerElements.length - 1; i++) {
+      innerElements[i].classList.remove('showPositions');
+      innerElements[i].classList.add('removePositions');
+    }
+    listOfFlashCards[flashcardIndex - 1].visibility = "hidden";
+  }
+
+  // If it is hiding show it
+  else{
+    for (var i = 0; i < innerElements.length - 1; i++) {
+      innerElements[i].classList.remove('removePositions');
+      innerElements[i].classList.add('showPositions')
+    }
+    listOfFlashCards[flashcardIndex - 1].visibility = "show";
+  }
+
+  console.log(listOfFlashCards);
 }
 
 function statusBoxColor(childEl,color){
